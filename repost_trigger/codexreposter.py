@@ -6,8 +6,8 @@ import os
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
 # SoundCloud API credentials
-CLIENT_ID = 'CLIENT_ID'
-CLIENT_SECRET = 'CLIENT_SECRET'
+CLIENT_ID = 'OqynoalXM2tKMHXUDf060UZRk7KnmxV4'
+CLIENT_SECRET = 'nPv5MkEB0wet4flSOVRbb85tMjDF18cB'
 REDIRECT_URI = 'REDIRECT_URI'
 
 # SoundCloud URLs
