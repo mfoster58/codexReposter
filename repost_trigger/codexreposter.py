@@ -88,3 +88,9 @@ def codexReposter(req: func.HttpRequest) -> func.HttpResponse:
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
              status_code=200
         )
+    
+@app.function_name(name="TimerTrigger")
+@app.schedule(schedule="0 0 * * * *", arg_name="mytimer", run_on_startup=True, use_monitor=True)
+def timer_trigger(mytimer: func.TimerRequest) -> None:
+    logging.info('Timer trigger function executed at %s', mytimer.past_due)
+    repost_tracks()
