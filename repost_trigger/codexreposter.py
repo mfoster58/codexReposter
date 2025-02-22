@@ -55,7 +55,8 @@ def repost_tracks():
             'limit': 5
         })
         search_response.raise_for_status()
-        tracks = search_response.json()
+        response_data = search_response.json()
+        tracks = response_data.get('collection', [])
         logging.info(f"Found {len(tracks)} tracks to repost.")
         logging.info(f"Tracks: {tracks}")
     except requests.exceptions.RequestException as e:
