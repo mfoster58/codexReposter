@@ -45,10 +45,13 @@ def repost_tracks():
             logging.error("Failed to obtain access token.")
             return
 
+    headers = {
+        'Authorization': f'OAuth {access_token}'
+    }
+
     try:
-        search_response = requests.get(SEARCH_URL, params={
-            'client_id': CLIENT_ID,
-            'q': '#codex-collective',
+        search_response = requests.get(SEARCH_URL, headers=headers, params={
+            'tags': '#codex-collective',
             'limit': 5
         })
         search_response.raise_for_status()
@@ -60,9 +63,7 @@ def repost_tracks():
     for track in tracks:
         track_id = track['id']
         try:
-            repost_response = requests.post(f"{REPOST_URL}/{track_id}", params={
-                'oauth_token': access_token
-            })
+            repost_response = requests.post(f"{REPOST_URL}/{track_id}", headers=headers)
             repost_response.raise_for_status()
             logging.info(f"Reposted track {track_id} successfully.")
         except requests.exceptions.RequestException as e:
