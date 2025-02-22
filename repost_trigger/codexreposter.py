@@ -51,13 +51,13 @@ def repost_tracks():
 
     try:
         search_response = requests.get(SEARCH_URL, headers=headers, params={
-            'tags': 'codex-collective',
+            #'tags': 'codex-collective',
             'limit': 5
         })
         search_response.raise_for_status()
         response_data = search_response.json()
         logging.info("Search response received successfully.")
-        logging.info(f"Raw search response JSON: {response_data}")
+        logging.info(f"Raw search response JSON: {search_response}")
         tracks = response_data.get('collection', [])
         logging.info(f"Found {len(tracks)} tracks to repost.")
         logging.info(f"Tracks: {tracks}")
@@ -68,8 +68,8 @@ def repost_tracks():
     for track in tracks:
         track_id = track['id']
         try:
-            repost_response = requests.post(f"{REPOST_URL}/{track_id}", headers=headers)
-            repost_response.raise_for_status()
+            #repost_response = requests.post(f"{REPOST_URL}/{track_id}", headers=headers)
+            #repost_response.raise_for_status()
             logging.info(f"Reposted track {track_id} successfully.")
         except requests.exceptions.RequestException as e:
             logging.error(f"Failed to repost track {track_id}: {e}")
