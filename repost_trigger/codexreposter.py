@@ -56,6 +56,7 @@ def repost_tracks():
         })
         search_response.raise_for_status()
         response_data = search_response.json()
+        logging.info("Search response received successfully.")
         tracks = response_data.get('collection', [])
         logging.info(f"Found {len(tracks)} tracks to repost.")
         logging.info(f"Tracks: {tracks}")
