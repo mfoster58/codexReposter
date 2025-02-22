@@ -51,7 +51,7 @@ def repost_tracks():
 
     try:
         search_response = requests.get(SEARCH_URL, headers=headers, params={
-            #'tags': 'codex-collective',
+            'tags': 'codex-collective',
             'limit': 5
         })
         search_response.raise_for_status()
