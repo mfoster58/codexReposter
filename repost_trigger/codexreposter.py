@@ -51,11 +51,13 @@ def repost_tracks():
 
     try:
         search_response = requests.get(SEARCH_URL, headers=headers, params={
-            'tags': '#codex-collective',
+            'tags': 'codex-collective',
             'limit': 5
         })
         search_response.raise_for_status()
         tracks = search_response.json()
+        logging.info(f"Found {len(tracks)} tracks to repost.")
+        logging.info(f"Tracks: {tracks}")
     except requests.exceptions.RequestException as e:
         logging.error(f"Search request failed: {e}")
         return
