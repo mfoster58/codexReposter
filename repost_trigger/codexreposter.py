@@ -75,7 +75,7 @@ def register_functions(app):
 
         # Perform SC auth and reposting
         repost_tracks()
-        return func.HttpResponse("Reposting tracks...")
+        return func.HttpResponse("Reposting tracks...", status_code=200)
     
 @app.function_name(name="TimerTrigger")
 @app.schedule(schedule="0 0 * * * *", arg_name="mytimer", run_on_startup=True, use_monitor=True)
