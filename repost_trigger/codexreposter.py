@@ -12,7 +12,7 @@ REDIRECT_URI = 'https://codexreposter.azurewebsites.net'
 
 # SoundCloud URLs
 AUTH_URL = 'https://secure.soundcloud.com/authorize'
-TOKEN_URL = 'https://secure.soundcloud.com/oauth/token'
+TOKEN_URL = 'https://api.soundcloud.com/oauth2/token'
 SEARCH_URL = 'https://api.soundcloud.com/tracks'
 REPOST_URL = 'https://api.soundcloud.com/reposts/tracks'
 
