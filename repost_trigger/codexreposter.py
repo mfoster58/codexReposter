@@ -11,10 +11,10 @@ CLIENT_SECRET = 'nPv5MkEB0wet4flSOVRbb85tMjDF18cB'
 REDIRECT_URI = 'https://codexreposter.azurewebsites.net'
 
 # SoundCloud URLs
-AUTH_URL = 'https://soundcloud.com/connect'
-TOKEN_URL = 'https://api.soundcloud.com/oauth2/token'
+AUTH_URL = 'https://secure.soundcloud.com/authorize'
+TOKEN_URL = 'https://secure.soundcloud.com/oauth/token'
 SEARCH_URL = 'https://api.soundcloud.com/tracks'
-REPOST_URL = 'https://api.soundcloud.com/me/track_reposts'
+REPOST_URL = 'https://api.soundcloud.com/reposts/tracks'
 
 # Global access token
 access_token = None
