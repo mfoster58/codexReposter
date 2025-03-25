@@ -67,8 +67,8 @@ def repost_tracks():
     for track in tracks:
         track_id = track['id']
         try:
-            #repost_response = requests.post(f"{REPOST_URL}/{track_id}", headers=headers)
-            #repost_response.raise_for_status()
+            repost_response = requests.post(f"{REPOST_URL}/{track_id}", headers=headers)
+            repost_response.raise_for_status()
             logging.info(f"Reposted track {track_id} successfully.")
         except requests.exceptions.RequestException as e:
             logging.error(f"Failed to repost track {track_id}: {e}")
